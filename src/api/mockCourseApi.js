@@ -3,7 +3,7 @@ import delay from './delay';
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
 // All calls return promises.
-let videos = [
+let courses = [
   {
     id: "react-flux-building-applications",
     title: "Building website using React, Ember, Ionic etc.",
@@ -51,53 +51,53 @@ function replaceAll(str, find, replace) {
 }
 
 //This would be performed on the server in a real app. Just stubbing in.
-const generateId = (videos) => {
-  return replaceAll(videos.title, ' ', '-');
+const generateId = (course) => {
+  return replaceAll(course.title, ' ', '-');
 };
 
-class VideoApi {
-  static getAllVideos() {
+class CourseApi {
+  static getAllCourses() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(Object.assign([], videos));
+        resolve(Object.assign([], courses));
       }, delay);
     });
   }
 
-  static saveVideo(video) {
-    video = Object.assign({}, video); // to avoid manipulating object passed in.
+  static saveCourse(course) {
+    course = Object.assign({}, course); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
         const minCourseTitleLength = 1;
-        if (video.title.length < minCourseTitleLength) {
+        if (course.title.length < minCourseTitleLength) {
           reject(`Title must be at least ${minCourseTitleLength} characters.`);
         }
 
-        if (video.id) {
-          const existingVideoIndex = videos.findIndex(a => a.id == video.id);
-          videos.splice(existingVideoIndex, 1, video);
+        if (course.id) {
+          const existingCourseIndex = courses.findIndex(a => a.id == course.id);
+          courses.splice(existingCourseIndex, 1, course);
         } else {
           //Just simulating creation here.
           //The server would generate ids and watchHref's for new courses in a real app.
           //Cloning so copy returned is passed by value rather than by reference.
-          video.id = generateId(video);
-          video.watchHref = `http://www.pluralsight.com/courses/${course.id}`;
-          videos.push(video);
+          course.id = generateId(course);
+          course.watchHref = `http://www.pluralsight.com/courses/${course.id}`;
+          courses.push(course);
         }
 
-        resolve(video);
+        resolve(course);
       }, delay);
     });
   }
 
-  static deleteVideo(videoId) {
+  static deleteCourse(courseId) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        const indexOfVideoToDelete = videos.findIndex(video => {
-          video.id == videoId;
+        const indexOfCourseToDelete = courses.findIndex(course => {
+          course.id == courseId;
         });
-        videos.splice(indexOfVideoToDelete, 1);
+        courses.splice(indexOfCourseToDelete, 1);
         resolve();
       }, delay);
     });
