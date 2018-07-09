@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import CourseList from "./VideoList";
+import CourseList from "./CourseList";
 import * as courseActions from "../../actions/courseActions";
 
 class CoursePage extends React.Component {
