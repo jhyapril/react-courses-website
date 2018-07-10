@@ -2,7 +2,7 @@ import courseApi from "../api/mockCourseApi";
 import * as types from "./actionTypes";
 
 function loadCoursesSuccess(allCourses) {
-  return {type: types.LOAD_COURSE_SUCCESS, payload: {allCourses}};
+  return {type: types.LOAD_COURSES_SUCCESS, payload: {allCourses}};
 }
 
 export function loadCourses() {
