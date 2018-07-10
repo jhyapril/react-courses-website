@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import CourseListRow from './SingleCourseRow';
 
 const CourseList = ({courses}) => {
     return (
@@ -13,15 +14,9 @@ const CourseList = ({courses}) => {
         </tr>
         </thead>
         <tbody>
-        {courses.map(course => (
-          <tr>
-            <td><a href={course.watchHref} target="_blank">Watch</a></td>
-            <td>{course.title}</td>
-            <td>{course.authorId}</td>
-            <td>{course.category}</td>
-            <td>{course.length}</td>
-          </tr>
-        ))}
+          {courses.map(course =>
+            <CourseListRow course={course}/>
+          )}
         </tbody>
       </table>
     );
