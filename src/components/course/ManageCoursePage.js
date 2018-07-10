@@ -10,15 +10,20 @@ class ManageCoursePage extends React.Component {
 
     this.state = {
       course: Object.assign({}, props.course),
-      errors: {}
+      errors: {},
+      saving: false
     }
   }
 
   render() {
     return (
       <CourseForm
+        allAuthors={[]}
+        onChange={this.updateCourseState}
+        onSave={this.saveCourse}
         course={this.state.course}
         errors={this.state.errors}
+        saving={this.state.saving}
       />
     );
   }
@@ -26,12 +31,14 @@ class ManageCoursePage extends React.Component {
 
 ManageCoursePage.propTypes = {
   course: PropTypes.object.isRequired,
-  errors: PropTypes.object
+  authors: PropTypes.array.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
+  let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
   return {
-      state: state
+    course: course
   };
 }
 
