@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import CourseList from "./CourseList";
 import * as courseActions from "../../actions/courseActions";
-import {browserHistory} from "react-router";
 
 class CoursePage extends React.Component {
   constructor(props, context) {
@@ -12,8 +11,7 @@ class CoursePage extends React.Component {
   }
 
   redirectToAddCoursePage() {
-    debugger;
-    browserHistory.push('/course');
+    this.context.router.push('/course');
   }
 
   render() {
@@ -35,6 +33,10 @@ class CoursePage extends React.Component {
 CoursePage.propTypes = {
   courses: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
+};
+
+CoursePage.contextTypes = {
+  router: PropTypes.object
 };
 
 function mapStateToProps(state, ownProps) {

@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as courseActions from "../../actions/courseActions";
 import CourseForm from "./CourseForm";
 import toastr from "toastr";
+import {browserHistory} from 'react-router';
 
 class ManageCoursePage extends React.Component {
   constructor(props, context) {
@@ -49,6 +50,7 @@ class ManageCoursePage extends React.Component {
     toastr.success('Course saved');
     this.context.router.push('/courses');
   }
+
 
   render() {
     return (
