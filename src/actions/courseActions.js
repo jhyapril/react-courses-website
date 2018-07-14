@@ -32,7 +32,7 @@ export function saveCourse(course) {
     return courseApi.saveCourse(course).then(resp => {
       course.id ? dispatch(updateCourseSuccess(course.id, resp)) : dispatch(createCourseSuccess(resp));
     }).catch(error => {
-      dispatch(ajaxCallError())
+      dispatch(ajaxCallError());
       throw(error);
     });
   };
