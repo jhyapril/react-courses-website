@@ -19,7 +19,7 @@ describe('Course Actions', () => {
       const action = courseActions.createCourseSuccess(newCourse);
       //assert
       expect(action).toEqual(expectedAction);
-    })
+    });
   });
 });
 
@@ -47,7 +47,7 @@ describe('Async Action', () => {
       expect(actions[0].type).toEqual(types.BEGIN_AJAX_CALL);
       expect(actions[1].type).toEqual(types.LOAD_COURSES_SUCCESS);
       done();
-    })
-  })
+    });
+  });
 });
 

@@ -14,11 +14,11 @@ describe('Course Reducers', () => {
     };
     //act
     const action = courseActions.createCourseSuccess(newCourse);
-    const newState = courseReducer(initialState, action)
+    const newState = courseReducer(initialState, action);
     //assert
     expect(newState.length).toEqual(3);
     expect(newState[0].title).toEqual('A');
     expect(newState[1].title).toEqual('B');
     expect(newState[2].title).toEqual('C');
-  })
+  });
 });
