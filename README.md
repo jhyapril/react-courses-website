@@ -1,5 +1,5 @@
 # react-courses-website
 Author: Jason Yang
 
-## Demo
-[Click Here](http://course_management_center.surge.sh)
+## Description
+This is for displaying courses that a tutor is providing and the high level introduction of the courses.
